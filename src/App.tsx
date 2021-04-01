@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { AppHeading } from './components/AppHeading';
+import { TodoList } from './components/TodoList';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+	const [ todos, setTodos ] = useState<Array<String>>([]);
+
+	const addTodo = (todo: string) => {
+		setTodos([ ...todos, todo ]);
+	};
+
+	return (
+		<React.Fragment>
+			<AppHeading addTodo={addTodo} />
+			<TodoList todos={todos} />
+			{/* <ListOfTodos/> */}
+		</React.Fragment> //always need capital names for components!
+	);
+};
 
 export default App;
