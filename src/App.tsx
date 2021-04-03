@@ -3,11 +3,17 @@ import { AppHeading } from './components/AppHeading';
 import { TodoList } from './components/TodoList';
 import './App.css';
 
-const App: React.FC = () => {
-	const [ todos, setTodos ] = useState<Array<String>>([]);
 
-	const addTodo = (todo: string) => {
-		setTodos([ ...todos, todo ]);
+const App: React.FC = () => {
+	const [ todos, setTodos ] = useState<Array<Todo>>([]);
+
+	interface Todo{
+		text: string;
+		complete: boolean;
+	}
+
+	const addTodo = (todo:string) => {
+		setTodos([ ...todos,{text: todo, complete: false} ]);
 	};
 
 	return (
