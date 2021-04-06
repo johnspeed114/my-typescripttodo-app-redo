@@ -23,10 +23,13 @@ const App: React.FC = () => {
 		setTodos(completeChange);
 	};
 
+	const deleteTodo = (todo: Todo) => {
+		setTodos(todos.filter((item) => item !== todo));
+	};
 	return (
 		<React.Fragment>
 			<AppHeading addTodo={addTodo} />
-			<TodoList todos={todos} toggleOnOff={toggleOnOff} />
+			<TodoList todos={todos} toggleOnOff={toggleOnOff} deleteTodo={deleteTodo} />
 			{/* <ListOfTodos/> */}
 		</React.Fragment> //always need capital names for components!
 	);

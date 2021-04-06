@@ -11,6 +11,7 @@ export const AppHeading: React.FunctionComponent<addHeadingProp> = ({ addTodo })
 		e.preventDefault();
 		addTodo(newTodo);
 		console.log('worked');
+		setNewTodo('');
 	};
 	return (
 		<div>
